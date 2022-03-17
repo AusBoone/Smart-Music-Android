@@ -7,35 +7,56 @@
     tools:context=".DisplayMessageActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Send"
         android:layout_width="125dp"
         android:layout_height="59dp"
-        android:text="Send"
-        tools:layout_editor_absoluteX="264dp"
-        tools:layout_editor_absoluteY="653dp" />
+        android:contentDescription="@string/button_send"
+        android:text="@string/button_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="231dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="@string/message"
         android:inputType="textPersonName"
         android:text=""
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="659dp" />
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Send"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="365dp"
         android:layout_height="601dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="91dp"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Send"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -101,7 +101,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
         // url for our brain
         // make sure to add mshape for uid.
         // make sure to add your url.
-        String url = "http://api.brainshop.ai/get?bid=164972&key=iZ5YQQe77XxPiNjj&uid=[uid]&msg=[msg]" + userMsg;
+        String url = "http://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg=[msg]" + userMsg;
 
         // creating a variable for our request queue.
         RequestQueue queue = Volley.newRequestQueue(DisplayMessageActivity.this);

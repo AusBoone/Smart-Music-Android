@@ -1,32 +1,19 @@
 package com.example.smartmusic;
 
-public class MessageModal {
+public class MsgModal {
 
-    // string to store our message and sender
-    private String message;
-    private String sender;
-
-    // constructor.
-    public MessageModal(String message, String sender) {
-        this.message = message;
-        this.sender = sender;
-    }
+    private String cnt;
 
     // getter and setter methods.
-    public String getMessage() {
-        return message;
+    public String getCnt() {
+        return cnt;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setCnt(String cnt) {
+        this.cnt = cnt;
     }
 
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
+    public String MsgModal() {
+        this.cnt = cnt;
     }
 }
-

@@ -9,38 +9,45 @@
 
     <!--recycler view to display our chats-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idRVChats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/idLLMessage" />
+        android:id="@+id/idRVChats"
+        android:layout_above="@id/idRLMsg" />
 
-    <LinearLayout
-        android:id="@+id/idLLMessage"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="5">
+        android:id="@+id/idLLMessage"
+        >
 
         <!--edit text to enter message-->
         <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Message"
+            android:textColorHint="@color/white"
             android:id="@+id/idEdtMessage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:hint="Enter Message" />
+            android:layout_margin="3dp"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/idFABSend"
+            android:textColor="@color/white"
+            android:singleLine="true"
+        />
 
-        <!--button to send message-->
-        <ImageButton
-            android:id="@+id/idIBSend"
-            android:layout_width="0dp"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="@color/purple_200"
-            android:src="@android:drawable/ic_menu_send"
-            app:tint="@color/white" />
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_send"
+            android:id="@id/idFABSend"
+            android:layout_margin="45dp"
+            app:fabCustomSize="45dp"
+            app:backgroundTint="@color/fab_color"
+            app:tint="@color/white"
+            android:layout_alignParentRight="true"
+            />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

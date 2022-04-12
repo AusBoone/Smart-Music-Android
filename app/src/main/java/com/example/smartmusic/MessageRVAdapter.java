@@ -31,7 +31,7 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
         switch (viewType) {
             case 0:
                 // below line we are inflating user message layout.
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_msg, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_msg_rv_item, parent, false);
                 return new UserViewHolder(view);
             case 1:
                 // below line we are inflating bot message layout.

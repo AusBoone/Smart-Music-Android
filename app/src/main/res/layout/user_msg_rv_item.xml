@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="start"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="end"
     android:layout_margin="5dp"
+    android:cardBackgroundColor="@color/user_back_color"
     android:elevation="8dp"
     app:cardCornerRadius="8dp">
 
@@ -14,24 +15,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!--below widget is for image of bot-->
-       <!-- <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_bot" />-->
-
-        <!--below widget is for
-            displaying message of bot-->
+        <!--text view for displaying user message-->
         <TextView
-            android:id="@+id/idTVBot"
+            android:id="@+id/idTVUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             android:padding="3dp"
-            android:text="Bot message"
-            android:textColor="@color/black" />
+            android:layout_gravity="center"
+            android:text="User message"
+            android:textColor="@color/white" />
+
+        <!--we are displaying user icon-->
+       <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_user" />
 
     </LinearLayout>
 

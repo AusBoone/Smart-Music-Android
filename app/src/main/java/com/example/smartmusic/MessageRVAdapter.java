@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class MessageRVAdapter extends RecyclerView.Adapter {
 
     // variable for our array list and context.
-    private ArrayList<MessageModal> messageModalArrayList;
+    private ArrayList<MsgModal> messageModalArrayList;
     private Context context;
 
     // constructor class.
-    public MessageRVAdapter(ArrayList<MessageModal> messageModalArrayList, Context context) {
+    public MessageRVAdapter(ArrayList<MsgModal> messageModalArrayList, Context context) {
         this.messageModalArrayList = messageModalArrayList;
         this.context = context;
     }
@@ -44,7 +44,7 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         // this method is use to set data to our layout file.
-        MessageModal modal = messageModalArrayList.get(position);
+        MsgModal modal = messageModalArrayList.get(position);
         switch (modal.getSender()) {
             case "user":
                 // below line is to set the text to our text view of user layout

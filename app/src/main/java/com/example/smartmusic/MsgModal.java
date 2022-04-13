@@ -13,7 +13,7 @@ public class MsgModal {
         this.cnt = cnt;
     }
 
-    public String MsgModal() {
+    public MsgModal(String cnt) {
         this.cnt = cnt;
     }
 }

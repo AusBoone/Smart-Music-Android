@@ -5,7 +5,7 @@ public class ChatsModal {
         private String message;
         private String sender;
 
-        // getter and setter methods.
+    // getter and setter methods.
         public String getMessage() {
             return message;
         }

@@ -7,7 +7,7 @@ import android.view.View;
 //import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.SmartMusic.MESSAGE";
+    //public static final String EXTRA_MESSAGE = "com.example.SmartMusic.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

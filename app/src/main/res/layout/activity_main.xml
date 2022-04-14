@@ -21,8 +21,9 @@
 
     <MultiAutoCompleteTextView
         android:id="@+id/multiAutoCompleteTextView"
-        android:layout_width="293dp"
-        android:layout_height="215dp"
+        android:layout_width="307dp"
+        android:layout_height="217dp"
+        android:background="@drawable/background"
         android:clickable="false"
         android:cursorVisible="false"
         android:focusable="false"

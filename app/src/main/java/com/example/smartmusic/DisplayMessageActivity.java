@@ -35,7 +35,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_message);
         chats = findViewById(R.id.idRVChats);
         userMsgEdt = findViewById(R.id.idEdtMessage);
-        sendMsgFab = findViewById(R.id.idFABSend);
+        sendMsgFab = findViewById(R.id.idFabSend);
         chatsModalArrayList = new ArrayList<>();
         chatRVAdapter = new ChatRVAdapter(chatsModalArrayList, this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -45,12 +45,13 @@ public class DisplayMessageActivity extends AppCompatActivity {
         sendMsgFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(userMsgEdt.getText().toString().isEmpty()){
+                if(userMsgEdt.getText().toString().isEmpty()) {
                     Toast.makeText(DisplayMessageActivity.this, "Please enter your message", Toast.LENGTH_SHORT).show();
-                    return;
+
                 }
-                getResponse(userMsgEdt.getText().toString());
-                userMsgEdt.setText("");
+                    getResponse(userMsgEdt.getText().toString());
+                    userMsgEdt.setText("");
+
             }
         });
 
@@ -59,7 +60,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     private void getResponse(String message) {
         chatsModalArrayList.add(new ChatsModal(message,USER_KEY));
         chatRVAdapter.notifyDataSetChanged();
-        String url = "http://api.brainshop.ai/get?bid=164972&key=iZ5YQQe77XxPiNjj&uid=[uid]&msg="+ message;
+        String url = "http://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg="+ message;
         String BASE_URL = "http://api.brainshop.ai/";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 

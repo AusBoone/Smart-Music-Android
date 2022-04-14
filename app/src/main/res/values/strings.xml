@@ -4,4 +4,5 @@
     <string name="button_send">Send</string>
     <string name="message">Enter a message</string>
     <string name="smart_music_suggests_music_based_on_your_mood_click_the_begin_button_to_start_the_chatbot">Smart Music suggests music based on your mood. Click the begin button to start the ChatBot</string>
+    <string name="enter_a_message">Enter a Message</string>
 </resources>

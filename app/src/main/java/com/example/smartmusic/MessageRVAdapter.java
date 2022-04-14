@@ -1,3 +1,4 @@
+/*
 package com.example.smartmusic;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -35,7 +36,7 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
                 return new UserViewHolder(view);
             case 1:
                 // below line we are inflating bot message layout.
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bot_msg, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bot_msg_rv_item, parent, false);
                 return new BotViewHolder(view);
         }
         return null;
@@ -101,4 +102,4 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
             botTV = itemView.findViewById(R.id.idTVBot);
         }
     }
-}
+}*/

@@ -12,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+//import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,14 +61,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
                     Toast.makeText(DisplayMessageActivity.this, "Please enter your message", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                getResponse(userMsgEdt.getText().toString());
+                try {
+                    getResponse(userMsgEdt.getText().toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 userMsgEdt.setText("");
             }
         });
 
     }
 
-    private void getResponse(String message) {
+    private void getResponse(String message) throws IOException {
         System.out.println("message = " + message);
         chatsModalArrayList.add(new ChatsModal(message,USER_KEY));
         chatRVAdapter.notifyDataSetChanged();
@@ -73,8 +80,21 @@ public class DisplayMessageActivity extends AppCompatActivity {
             System.out.println(chatsModalArrayList);
         }
 
-        String URL = "https://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg="+ message;
-        String BASE_URL = "https://api.brainshop.ai/";
+        String URL = "http://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg=" + message;
+        System.out.println(URL);
+
+        String BASE_URL = "http://api.brainshop.ai/";
+
+/*
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        Request request = new Request.Builder()
+                .url("http://api.brainshop.ai/get?bid=164972&key=iZ5YQQe77XxPiNjj&uid=[uid]&msg=hello")
+                .method("GET", null)
+                .build();
+        okhttp3.Response response = client.newCall(request).execute();
+*/
+
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
@@ -83,7 +103,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MsgModal> call, Response<MsgModal> response) {
                 int statusCode = response.code();
-                if(response.isSuccessful()) {
+                if(response.isSuccessful() && response.code() == 200) {
                     System.out.println("[API response code = "+statusCode + ".]" );
                     MsgModal modal = response.body();
                     System.out.println(modal.getCnt().toString());

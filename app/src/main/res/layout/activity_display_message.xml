@@ -12,7 +12,10 @@
         android:id="@+id/idRVChats"
         android:layout_width="match_parent"
         android:layout_height="590dp"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:nestedScrollingEnabled="false"
+
+        />
 
     <RelativeLayout
         android:id="@+id/idLLMessage"

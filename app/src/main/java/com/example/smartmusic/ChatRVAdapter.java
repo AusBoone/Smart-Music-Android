@@ -21,9 +21,8 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
         this.context = context;
     }
 
-    @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         switch (viewType) {
             case 0:
@@ -37,7 +36,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
         ChatsModal chatsModal = chatsModalArrayList.get(position);
         switch(chatsModal.getSender()) {
             case "user":
@@ -79,7 +78,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     public static class BotViewHolder extends RecyclerView.ViewHolder {
         TextView bot;
 
-        public BotViewHolder(@NonNull View itemView) {
+        public BotViewHolder(View itemView) {
             super(itemView);
             bot = itemView.findViewById(R.id.idTVBot);
         }

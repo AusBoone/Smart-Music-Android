@@ -1,6 +1,7 @@
 package com.example.smartmusic;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -33,6 +34,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         chats = findViewById(R.id.idRVChats);
         userMsgEdt = findViewById(R.id.idEdtMessage);
         sendMsgFab = findViewById(R.id.idFabSend);
@@ -43,35 +49,50 @@ public class DisplayMessageActivity extends AppCompatActivity {
         chats.setAdapter(chatRVAdapter);
 
         sendMsgFab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                String msg = userMsgEdt.getText().toString();
+                System.out.println("[user input = "+ msg + "]");
                 if(userMsgEdt.getText().toString().isEmpty()) {
                     Toast.makeText(DisplayMessageActivity.this, "Please enter your message", Toast.LENGTH_SHORT).show();
-
+                    return;
                 }
-                    getResponse(userMsgEdt.getText().toString());
-                    userMsgEdt.setText("");
-
+                getResponse(userMsgEdt.getText().toString());
+                userMsgEdt.setText("");
             }
         });
 
     }
 
     private void getResponse(String message) {
+        System.out.println("message = " + message);
         chatsModalArrayList.add(new ChatsModal(message,USER_KEY));
         chatRVAdapter.notifyDataSetChanged();
-        String url = "http://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg="+ message;
-        String BASE_URL = "http://api.brainshop.ai/";
+        for(int i=0; i< chatsModalArrayList.size(); i++){
+            System.out.println(chatsModalArrayList);
+        }
+
+        String URL = "https://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg="+ message;
+        String BASE_URL = "https://api.brainshop.ai/";
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-        Call<MsgModal> call = retrofitAPI.getMessage(url);
+        Call<MsgModal> call = retrofitAPI.getMessage(URL);
         call.enqueue(new Callback<MsgModal>() {
             @Override
             public void onResponse(Call<MsgModal> call, Response<MsgModal> response) {
-                MsgModal modal = response.body();
-                chatsModalArrayList.add(new ChatsModal(modal.getCnt(),BOT_KEY));
-                chatRVAdapter.notifyDataSetChanged();
+                int statusCode = response.code();
+                if(response.isSuccessful()) {
+                    System.out.println("[API response code = "+statusCode + ".]" );
+                    MsgModal modal = response.body();
+                    System.out.println(modal.getCnt().toString());
+                    System.out.println(response.body().toString());
+                    String res = modal.getCnt();
+                    System.out.println(res);
+                    chatsModalArrayList.add(new ChatsModal(res, BOT_KEY));
+                    chatRVAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -81,4 +102,5 @@ public class DisplayMessageActivity extends AppCompatActivity {
             }
         });
     }
+
 }

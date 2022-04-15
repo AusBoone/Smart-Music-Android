@@ -14,26 +14,27 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <!--below widget is for image of bot-->
-    <ImageView
-         android:layout_width="30dp"
-         android:layout_height="30dp"
-         android:layout_margin="10dp"
-         android:src="@drawable/ic_chatbot"
-        android:layout_marginHorizontal="10dp"
-        />
-
     <!--below widget is for
-        displaying message of bot-->
+    displaying message of bot-->
     <TextView
         android:id="@+id/idTVBot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
-        android:padding="3dp"
-        android:text="Bot message"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="@string/bot_message"
         android:textColor="@color/white"
+        />
+
+    <!--below widget is for image of bot-->
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/bot_image"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/ic_bot"
         />
 
 </LinearLayout>

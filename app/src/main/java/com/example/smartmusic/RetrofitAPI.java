@@ -4,9 +4,9 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Url;
 
-public abstract class RetrofitAPI {
+public interface RetrofitAPI {
 
-    @GET
-    abstract Call<MsgModal> getMessage(@Url String url);
+    @GET()
+    Call<MsgModal> getMessage(@Url String url);
 
 }

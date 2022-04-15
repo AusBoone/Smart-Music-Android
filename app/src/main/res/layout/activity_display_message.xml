@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".DisplayMessageActivity">
+    tools:context=".DisplayMessageActivity"
+    >
 
     <!--recycler view to display our chats-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRVChats"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="590dp"
+        android:padding="15dp" />
 
     <RelativeLayout
         android:id="@+id/idLLMessage"
@@ -24,7 +26,6 @@
             android:id="@+id/idEdtMessage"
             android:layout_width="302dp"
             android:layout_height="64dp"
-            android:background="@drawable/background"
             android:layout_centerInParent="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
@@ -32,19 +33,21 @@
             android:layout_marginBottom="5dp"
             android:layout_toStartOf="@+id/idFabSend"
             android:autofillHints=""
-            android:hint="@string/enter_a_message"
+            android:background="@drawable/background"
+            android:hint="@string/message"
             android:inputType="text|textAutoCorrect"
             android:minHeight="48dp"
+            android:padding="20dp"
             android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
+            android:textColor="@color/teal_200"
+            android:textColorHint="@color/teal_200"
             android:visibility="visible"
             tools:visibility="visible" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/idFabSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="45dp"
             android:layout_marginTop="45dp"

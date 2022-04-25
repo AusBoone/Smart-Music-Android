@@ -1,5 +1,6 @@
 package com.example.smartmusic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+/*
 import com.ibm.cloud.sdk.core.security.Authenticator;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
 import com.ibm.watson.natural_language_understanding.v1.NaturalLanguageUnderstanding;
@@ -18,6 +20,7 @@ import com.ibm.watson.natural_language_understanding.v1.model.AnalysisResults;
 import com.ibm.watson.natural_language_understanding.v1.model.AnalyzeOptions;
 import com.ibm.watson.natural_language_understanding.v1.model.EmotionOptions;
 import com.ibm.watson.natural_language_understanding.v1.model.Features;
+*/
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +43,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
     private final String USER_KEY = "user";
     private ArrayList<ChatsModal>chatsModalArrayList;
     private ChatRVAdapter chatRVAdapter;
+
+    static String tempStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
             System.out.println(chatsModalArrayList);
         }
 
+  /*
         String ibmURL = "https://api.us-east.natural-language-understanding.watson.cloud.ibm.com/instances/f78d5078-01f6-44a5-b9c8-9fb1fa9ecf98";
 
         IamAuthenticator authenticator = new IamAuthenticator.Builder().apikey("0zV1aRs0i26eHhVPqEkGkP-nnxabDAxladH5GHjBjRy4").build();
@@ -117,7 +123,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 .execute()
                 .getResult();
         System.out.println(aResponse);
-
+*/
         String URL = "http://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg=" + message;
         System.out.println(URL);
 
@@ -144,10 +150,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 if(response.isSuccessful() && response.code() == 200) {
                     System.out.println("[API response code = "+statusCode + ".]" );
                     MsgModal modal = response.body();
-                    System.out.println(modal.getCnt().toString());
-                    System.out.println(response.body().toString());
+                    System.out.println("Line 151 = " + modal.getCnt().toString());
+                    tempStr = modal.getCnt().toString();
+                    System.out.println("Line 152 = " + response.body().toString());
                     String res = modal.getCnt();
-                    System.out.println(res);
+                    System.out.println("Line 154 = " + res);
                     chatsModalArrayList.add(new ChatsModal(res, BOT_KEY));
                     chatRVAdapter.notifyDataSetChanged();
                 }
@@ -161,4 +168,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
         });
     }
 
+    public void botMsg(View view) {
+        Intent myIntent = new Intent(DisplayMessageActivity.this, YoutubeAPIWebView.class);
+        //EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(myIntent);
+    }
 }

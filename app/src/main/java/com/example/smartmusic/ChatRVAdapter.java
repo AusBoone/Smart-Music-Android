@@ -1,6 +1,7 @@
 package com.example.smartmusic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
     private ArrayList<ChatsModal> chatsModalArrayList;
     private Context context;
+    DisplayMessageActivity displayMessageActivity = new DisplayMessageActivity();
 
     public ChatRVAdapter(ArrayList<ChatsModal> chatsModalArrayList, Context context) {
         this.chatsModalArrayList = chatsModalArrayList;
@@ -81,7 +83,12 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
         public BotViewHolder(View itemView) {
             super(itemView);
             bot = itemView.findViewById(R.id.idTVBot);
+            bot.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DisplayMessageActivity.botMsg(view);
+                }
+            });
+            }
         }
-    }
-
 }

@@ -22,6 +22,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:padding="10dp"
+            android:autoLink="all"
             android:text="@string/user_message"
             android:textColor="@color/white" />
 

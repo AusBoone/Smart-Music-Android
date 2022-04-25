@@ -22,13 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:padding="10dp"
-        android:onClick="botMsg"
-        android:text="@string/bot_message"
-        android:textColor="@color/white"
         android:clickable="true"
         android:focusable="true"
-        />
+        android:minHeight="48dp"
+        android:autoLink="all"
+        android:padding="10dp"
+        android:text="@string/bot_message"
+        android:textColor="@color/white" />
 
     <!--below widget is for image of bot-->
     <ImageView

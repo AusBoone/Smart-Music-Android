@@ -1,6 +1,5 @@
 package com.example.smartmusic;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -12,6 +11,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 /*
 import com.ibm.cloud.sdk.core.security.Authenticator;
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
@@ -21,18 +30,7 @@ import com.ibm.watson.natural_language_understanding.v1.model.AnalyzeOptions;
 import com.ibm.watson.natural_language_understanding.v1.model.EmotionOptions;
 import com.ibm.watson.natural_language_understanding.v1.model.Features;
 */
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 //import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DisplayMessageActivity extends AppCompatActivity {
 
@@ -150,7 +148,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
                 if(response.isSuccessful() && response.code() == 200) {
                     System.out.println("[API response code = "+statusCode + ".]" );
                     MsgModal modal = response.body();
-                    System.out.println("Line 151 = " + modal.getCnt().toString());
+                    System.out.println("Line 151 = " + modal.getCnt());
                     tempStr = modal.getCnt().toString();
                     System.out.println("Line 152 = " + response.body().toString());
                     String res = modal.getCnt();
@@ -168,11 +166,4 @@ public class DisplayMessageActivity extends AppCompatActivity {
         });
     }
 
-    public void botMsg(View view) {
-        Intent myIntent = new Intent(DisplayMessageActivity.this, YoutubeAPIWebView.class);
-        //EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(myIntent);
-    }
 }

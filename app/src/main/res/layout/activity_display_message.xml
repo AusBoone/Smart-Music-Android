@@ -30,10 +30,10 @@
             android:layout_width="302dp"
             android:layout_height="64dp"
             android:layout_centerInParent="true"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="20dp"
             android:layout_toStartOf="@+id/idFabSend"
             android:autofillHints=""
             android:background="@drawable/background"
@@ -49,8 +49,8 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/idFabSend"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="45dp"
             android:layout_marginTop="45dp"

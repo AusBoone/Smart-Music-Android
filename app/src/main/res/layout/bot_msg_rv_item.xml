@@ -9,37 +9,37 @@
     app:cardBackgroundColor="@color/bot_back_color"
     app:cardCornerRadius="8dp">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
-    <!--below widget is for
-    displaying message of bot-->
-    <TextView
-        android:id="@+id/idTVBot"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:minHeight="48dp"
-        android:autoLink="all"
-        android:padding="10dp"
-        android:text="@string/bot_message"
-        android:textColor="@color/white" />
+        android:orientation="horizontal">
 
-    <!--below widget is for image of bot-->
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:contentDescription="@string/bot_image"
-        android:layout_marginHorizontal="10dp"
-        android:src="@drawable/ic_bot"
-        />
+        <!--below widget is for
+        displaying message of bot-->
+        <TextView
+            android:id="@+id/idTVBot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:autoLink="all"
+            android:padding="10dp"
+            android:text="@string/bot_message"
+            android:textColor="@color/white" />
 
-</LinearLayout>
+        <!--below widget is for image of bot-->
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/bot_image"
+            android:layout_marginHorizontal="10dp"
+            android:src="@drawable/ic_bot"
+            />
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

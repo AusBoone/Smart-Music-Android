@@ -21,17 +21,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/*
-import com.ibm.cloud.sdk.core.security.Authenticator;
-import com.ibm.cloud.sdk.core.security.IamAuthenticator;
-import com.ibm.watson.natural_language_understanding.v1.NaturalLanguageUnderstanding;
-import com.ibm.watson.natural_language_understanding.v1.model.AnalysisResults;
-import com.ibm.watson.natural_language_understanding.v1.model.AnalyzeOptions;
-import com.ibm.watson.natural_language_understanding.v1.model.EmotionOptions;
-import com.ibm.watson.natural_language_understanding.v1.model.Features;
-*/
-//import okhttp3.OkHttpClient;
-
+/**
+ *
+ */
 public class DisplayMessageActivity extends AppCompatActivity {
 
     private RecyclerView chats;
@@ -91,51 +83,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
             System.out.println(chatsModalArrayList);
         }
 
-  /*
-        String ibmURL = "https://api.us-east.natural-language-understanding.watson.cloud.ibm.com/instances/f78d5078-01f6-44a5-b9c8-9fb1fa9ecf98";
-
-        IamAuthenticator authenticator = new IamAuthenticator.Builder().apikey("0zV1aRs0i26eHhVPqEkGkP-nnxabDAxladH5GHjBjRy4").build();
-        NaturalLanguageUnderstanding naturalLanguageUnderstanding = new NaturalLanguageUnderstanding("2022-04-07", authenticator);
-        naturalLanguageUnderstanding.setServiceUrl(ibmURL);
-
-        String url = "www.ibm.com";
-
-        List<String> targets = new ArrayList<>();
-        targets.add(message);
-
-        EmotionOptions emotion= new EmotionOptions.Builder()
-                .targets(targets)
-                .build();
-
-        Features features = new Features.Builder()
-                .emotion(emotion)
-                .build();
-
-        AnalyzeOptions parameters = new AnalyzeOptions.Builder()
-                .url(url)
-                .features(features)
-                .build();
-
-        AnalysisResults aResponse = naturalLanguageUnderstanding
-                .analyze(parameters)
-                .execute()
-                .getResult();
-        System.out.println(aResponse);
-*/
         String URL = "http://api.brainshop.ai/get?bid=165361&key=qcRNGI9WWxgUcabt&uid=[uid]&msg=" + message;
         System.out.println(URL);
 
         String BASE_URL = "http://api.brainshop.ai/";
-
-/*
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
-        Request request = new Request.Builder()
-                .url("http://api.brainshop.ai/get?bid=164972&key=iZ5YQQe77XxPiNjj&uid=[uid]&msg=hello")
-                .method("GET", null)
-                .build();
-        okhttp3.Response response = client.newCall(request).execute();
-*/
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 

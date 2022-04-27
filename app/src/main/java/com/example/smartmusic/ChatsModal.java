@@ -1,14 +1,20 @@
 package com.example.smartmusic;
 
+/**
+ * ChatsModal.java
+ *
+ */
 public class ChatsModal {
-        // string to store our message and sender
+
+        /** string to store our message and sender */
         private String message;
         private String sender;
 
-    // getter and setter methods.
+        /** getter and setter methods. */
         public String getMessage() {
             return message;
         }
+
 
         public void setMessage(String message) {
             this.message = message;

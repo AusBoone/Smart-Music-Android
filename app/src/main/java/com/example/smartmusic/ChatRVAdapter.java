@@ -1,7 +1,6 @@
 package com.example.smartmusic;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/** ChatRVAdapter.java
+ *
+ */
 public class ChatRVAdapter extends RecyclerView.Adapter {
 
     private ArrayList<ChatsModal> chatsModalArrayList;

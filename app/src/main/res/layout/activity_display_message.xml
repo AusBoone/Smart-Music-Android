@@ -43,7 +43,7 @@
             android:padding="20dp"
             android:singleLine="true"
             android:textColor="@color/teal_200"
-            android:textColorHint="@color/teal_200"
+            android:textColorHint="#00838F"
             android:visibility="visible"
             tools:visibility="visible" />
 
@@ -59,7 +59,7 @@
             android:contentDescription="@android:string/unknownName"
             android:src="@drawable/ic_send"
             android:visibility="visible"
-            app:backgroundTint="@color/fab_color"
+            app:backgroundTint="@color/teal_200"
             app:fabCustomSize="45dp"
             app:tint="@color/white"
             tools:visibility="visible" />

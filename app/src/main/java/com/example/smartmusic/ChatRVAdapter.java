@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 /** ChatRVAdapter.java
- *
+ * @author Suleman, Austin, Patrick
+ * This java class file contains the RecyclerView adapter and displays the chat messages in the
+ * activity.
+ * date: 04-28-22
  */
 public class ChatRVAdapter extends RecyclerView.Adapter {
 
@@ -25,6 +28,9 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     }
 
     @Override
+    /**
+     * this method creates the recycler view for the messages to be displayed
+     */
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         switch (viewType) {
@@ -39,6 +45,9 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     }
 
     @Override
+    /**
+     * this method displays the message from either the user or the chatbot.
+     */
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
         ChatsModal chatsModal = chatsModalArrayList.get(position);
         switch(chatsModal.getSender()) {
@@ -52,6 +61,10 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     }
 
     @Override
+    /**
+     * this method determines if it's either the user or bot
+     * @return an int
+     */
     public int getItemViewType(int position) {
         switch(chatsModalArrayList.get(position).getSender()) {
             case "user":
@@ -64,10 +77,16 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     }
 
     @Override
+    /**
+     * this method returns the size of the messages.
+     */
     public int getItemCount() {
         return chatsModalArrayList.size();
     }
 
+    /**
+     * this method displays the messages from the user in a text view
+     */
     public static class UserViewHolder extends RecyclerView.ViewHolder {
 
         TextView user;
@@ -77,7 +96,9 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
             user = itemView.findViewById(R.id.idTVUser);
         }
     }
-
+    /**
+     * this method displays the messages from the bot in a text view
+     */
     public static class BotViewHolder extends RecyclerView.ViewHolder {
         TextView bot;
 

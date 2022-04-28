@@ -22,7 +22,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- *
+ *DisplayMessageActivity.java
+ * @author Suleman, Austin, Patrick
+ * This java class file contains the second activity: displaymessage activity.
+ * Date: 04-28-22
  */
 public class DisplayMessageActivity extends AppCompatActivity {
 
@@ -37,6 +40,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
     static String tempStr;
 
     @Override
+    /**
+     * this method displays the chat messages and contains the edit text box and send button
+     * contains the implementation for the adapters
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_message);
@@ -57,6 +64,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
         sendMsgFab.setOnClickListener(new View.OnClickListener() {
 
             @Override
+            /**
+             * this method sends a Toast message to the user
+             * if it is empty, then it sends a Toast message that says "Please enter your message"
+             * else if the user types a message it returns the response from the API for that
+             * particular message
+             */
             public void onClick(View view) {
                 String msg = userMsgEdt.getText().toString();
                 System.out.println("[user input = "+ msg + "]");
@@ -75,6 +88,11 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @return the response from the Brainshop API for a particular message
+     * @param message
+     * @throws IOException
+     */
     private void getResponse(String message) throws IOException {
         System.out.println("message = " + message);
         chatsModalArrayList.add(new ChatsModal(message,USER_KEY));
@@ -94,6 +112,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Call<MsgModal> call = retrofitAPI.getMessage(URL);
         call.enqueue(new Callback<MsgModal>() {
             @Override
+            /**
+             * this method will check for the successful response from the API and the response code "200"
+             */
             public void onResponse(Call<MsgModal> call, Response<MsgModal> response) {
                 int statusCode = response.code();
                 if(response.isSuccessful() && response.code() == 200) {
@@ -110,6 +131,10 @@ public class DisplayMessageActivity extends AppCompatActivity {
             }
 
             @Override
+            /**
+             * This method onFailure sends the response as "please revert your question" if there's
+             * no response from the API
+             */
             public void onFailure(Call<MsgModal> call, Throwable t) {
                 chatsModalArrayList.add(new ChatsModal("Please revert your question",BOT_KEY));
                 chatRVAdapter.notifyDataSetChanged();

@@ -19,7 +19,7 @@ public class ChatsModal {
         }
 
     /**
-     * this method sets the message
+     * this method is a setter for the message
      * @param message
      */
         public void setMessage(String message) {

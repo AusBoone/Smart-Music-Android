@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
-//import android.widget.EditText;
 
 /** MainActivity.java
 * @author: Austin, Suleman, Patrick
@@ -31,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
     */
     public void beginButton(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 

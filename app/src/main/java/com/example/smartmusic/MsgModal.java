@@ -17,7 +17,8 @@ public class MsgModal{
 
 
     /**
-     * getter and setter methods.
+     * getter methods.
+     * @return cnt message response from the API
      */
     public String getCnt() {
         return cnt;

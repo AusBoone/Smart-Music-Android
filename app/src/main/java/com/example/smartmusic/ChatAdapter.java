@@ -11,34 +11,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-/** ChatRVAdapter.java
+/** ChatAdapter.java
  * @author Suleman, Austin, Patrick
- * This java class file contains the RecyclerView adapter and displays the chat messages in the
- * activity.
+ * This java class file contains the multiple recycler Views
+ * and displays the chat messages in a Text View inside the recycler view
+ * in the Display Message activity.
  * date: 04-28-22
  */
-public class ChatRVAdapter extends RecyclerView.Adapter {
+public class ChatAdapter extends RecyclerView.Adapter {
 
-    private ArrayList<ChatsModal> chatsModalArrayList;
+    private ArrayList<Chats> chatsArrayList;
     private Context context;
 
-    public ChatRVAdapter(ArrayList<ChatsModal> chatsModalArrayList, Context context) {
-        this.chatsModalArrayList = chatsModalArrayList;
+    public ChatAdapter(ArrayList<Chats> chatsArrayList, Context context) {
+        this.chatsArrayList = chatsArrayList;
         this.context = context;
     }
 
     @Override
     /**
-     * this method creates the recycler view for the messages to be displayed
+     * this method creates the recycler view for the chat messages to be displayed
+     * below code is to switch our layout type along with view holder.
      */
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
         switch (viewType) {
             case 0:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_msg_rv_item,parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_msg,parent,false);
                 return new UserViewHolder(view);
             case 1:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bot_msg_rv_item,parent,false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bot_msg,parent,false);
                 return new BotViewHolder(view);
         }
         return null;
@@ -46,16 +48,17 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
     @Override
     /**
-     * this method displays the message from either the user or the chatbot.
+     * this method is used to set data to our layout file.
+     * this method displays the message from either the user or bot.
      */
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
-        ChatsModal chatsModal = chatsModalArrayList.get(position);
-        switch(chatsModal.getSender()) {
+        Chats chats = chatsArrayList.get(position);
+        switch(chats.getSender()) {
             case "user":
-                ((UserViewHolder)holder).user.setText(chatsModal.getMessage());
+                ((UserViewHolder)holder).user.setText(chats.getMessage());
                 break;
             case "bot":
-                ((BotViewHolder)holder).bot.setText(chatsModal.getMessage());
+                ((BotViewHolder)holder).bot.setText(chats.getMessage());
                 break;
         }
     }
@@ -63,10 +66,10 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     @Override
     /**
      * this method determines if it's either the user or bot
-     * @return an int
+     * @return an int - '0' for "user", '1' for "bot", '-1' for "default"
      */
     public int getItemViewType(int position) {
-        switch(chatsModalArrayList.get(position).getSender()) {
+        switch(chatsArrayList.get(position).getSender()) {
             case "user":
                 return 0;
             case "bot":
@@ -78,10 +81,10 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
     @Override
     /**
-     * this method returns the size of the messages.
+     * this method returns the size of the arraylist.
      */
     public int getItemCount() {
-        return chatsModalArrayList.size();
+        return chatsArrayList.size();
     }
 
     /**
@@ -93,7 +96,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            user = itemView.findViewById(R.id.idTVUser);
+            user = itemView.findViewById(R.id.idUser);
         }
     }
     /**
@@ -104,7 +107,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
 
         public BotViewHolder(View itemView) {
             super(itemView);
-            bot = itemView.findViewById(R.id.idTVBot);
+            bot = itemView.findViewById(R.id.idBot);
             }
         }
 }

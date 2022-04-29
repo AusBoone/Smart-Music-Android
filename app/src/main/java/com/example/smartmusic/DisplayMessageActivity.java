@@ -32,8 +32,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
     private RecyclerView chats;
     private EditText userMsg;
     private FloatingActionButton sendMsg;
-    private final String BOT_KEY = "bot";
-    private final String USER_KEY = "user";
+    private final String BOT = "bot";
+    private final String USER = "user";
     private ArrayList<Chats> chatsArrayList;
     private ChatAdapter chatAdapter;
 
@@ -96,7 +96,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
      */
     private void getResponse(String message) throws IOException {
         System.out.println("message = " + message);
-        chatsArrayList.add(new Chats(message,USER_KEY));
+        chatsArrayList.add(new Chats(message,USER));
         chatAdapter.notifyDataSetChanged();
         for(int i = 0; i< chatsArrayList.size(); i++){
             System.out.println(chatsArrayList);
@@ -126,7 +126,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
                     System.out.println("Line 152 = " + response.body().toString());
                     String res = modal.getCnt();
                     System.out.println("Line 154 = " + res);
-                    chatsArrayList.add(new Chats(res, BOT_KEY));
+                    chatsArrayList.add(new Chats(res, BOT));
                     chatAdapter.notifyDataSetChanged();
                 }
             }
@@ -137,7 +137,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
              * no response from the API
              */
             public void onFailure(Call<MessageModal> call, Throwable t) {
-                chatsArrayList.add(new Chats("Please revert your question",BOT_KEY));
+                chatsArrayList.add(new Chats("Please revert your question",BOT));
                 chatAdapter.notifyDataSetChanged();
             }
         });

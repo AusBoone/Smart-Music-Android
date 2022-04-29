@@ -22,6 +22,8 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
     private ArrayList<Chats> chatsArrayList;
     private Context context;
+    private final String BOT = "bot";
+    private final String USER = "user";
 
     public ChatAdapter(ArrayList<Chats> chatsArrayList, Context context) {
         this.chatsArrayList = chatsArrayList;
@@ -38,10 +40,10 @@ public class ChatAdapter extends RecyclerView.Adapter {
         switch (viewType) {
             case 0:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_msg,parent,false);
-                return new UserViewHolder(view);
+                return new UserView(view);
             case 1:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bot_msg,parent,false);
-                return new BotViewHolder(view);
+                return new BotView(view);
         }
         return null;
     }
@@ -54,11 +56,11 @@ public class ChatAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
         Chats chats = chatsArrayList.get(position);
         switch(chats.getSender()) {
-            case "user":
-                ((UserViewHolder)holder).user.setText(chats.getMessage());
+            case USER:
+                ((UserView)holder).user.setText(chats.getMessage());
                 break;
-            case "bot":
-                ((BotViewHolder)holder).bot.setText(chats.getMessage());
+            case BOT:
+                ((BotView)holder).bot.setText(chats.getMessage());
                 break;
         }
     }
@@ -90,11 +92,11 @@ public class ChatAdapter extends RecyclerView.Adapter {
     /**
      * this method displays the messages from the user in a text view
      */
-    public static class UserViewHolder extends RecyclerView.ViewHolder {
+    public static class UserView extends RecyclerView.ViewHolder {
 
         TextView user;
 
-        public UserViewHolder(@NonNull View itemView) {
+        public UserView(@NonNull View itemView) {
             super(itemView);
             user = itemView.findViewById(R.id.idUser);
         }
@@ -102,10 +104,10 @@ public class ChatAdapter extends RecyclerView.Adapter {
     /**
      * this method displays the messages from the bot in a text view
      */
-    public static class BotViewHolder extends RecyclerView.ViewHolder {
+    public static class BotView extends RecyclerView.ViewHolder {
         TextView bot;
 
-        public BotViewHolder(View itemView) {
+        public BotView(View itemView) {
             super(itemView);
             bot = itemView.findViewById(R.id.idBot);
             }

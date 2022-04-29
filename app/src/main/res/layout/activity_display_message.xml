@@ -9,7 +9,7 @@
 
     <!--recycler view to display our chats-->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idChats"
+        android:id="@+id/idRVChats"
         android:layout_width="match_parent"
         android:layout_height="590dp"
         android:padding="15dp"
@@ -34,7 +34,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="20dp"
-            android:layout_toStartOf="@+id/idSend"
+            android:layout_toStartOf="@+id/idFabSend"
             android:autofillHints=""
             android:background="@drawable/background"
             android:hint="@string/message"
@@ -49,7 +49,7 @@
             tools:visibility="visible" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/idSend"
+            android:id="@+id/idFabSend"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_alignParentEnd="true"

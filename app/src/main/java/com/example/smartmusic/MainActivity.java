@@ -9,7 +9,7 @@ import android.os.StrictMode;
 import android.view.View;
 
 /** MainActivity.java
-* @author: Austin, Suleman, Patrick
+* @author Austin, Suleman, Patrick
 * This java class file contains a function for the begin button and a text view message for the user
 * date: 03-20-2022
 */
@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
     
     /** 
-    * Called when the user taps the Send button on the main activity and navigates the user to the Chat Message Activity
+    * Called when the user taps the Send button on the main activity and navigates the user to the Display Message Activity
+    * @param view starts the displayMessageActivity
     */
     public void beginButton(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);

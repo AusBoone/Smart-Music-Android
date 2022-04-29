@@ -16,6 +16,6 @@ public interface RetrofitAPI {
     /**
      * calls the API and returns a response from the API
      */
-    Call<MsgModal> getMessage(@Url String url);
+    Call<MessageModal> getMessage(@Url String url);
 
 }

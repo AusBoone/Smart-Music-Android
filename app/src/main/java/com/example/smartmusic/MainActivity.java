@@ -10,12 +10,11 @@ import android.view.View;
 //import android.widget.EditText;
 
 /** MainActivity.java
-* @author: Austin, Suleman, Patrick
+* @author Austin, Suleman, Patrick
 * This java class file contains a function for the begin button and a text view message for the user
 * date: 03-20-2022
 */
 public class MainActivity extends AppCompatActivity {
-    //public static final String EXTRA_MESSAGE = "com.example.SmartMusic.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +24,13 @@ public class MainActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
     }
-    
-    /** 
-    * Called when the user taps the Send button on the main activity and navigates the user to the Chat Message Activity
-    */
+
+    /**
+     * Called when the user taps the Send button on the main activity and navigates the user to the Display Message Activity
+     * @param view starts the displayMessageActivity
+     */
     public void beginButton(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 

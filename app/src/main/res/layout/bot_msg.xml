@@ -6,7 +6,7 @@
     android:layout_gravity="start"
     android:layout_margin="5dp"
     android:elevation="8dp"
-    app:cardBackgroundColor="@color/bot_back_color"
+    app:cardBackgroundColor="@color/teal_700"
     app:cardCornerRadius="8dp">
 
     <LinearLayout
@@ -17,7 +17,7 @@
         <!--below widget is for
         displaying message of bot-->
         <TextView
-            android:id="@+id/idTVBot"
+            android:id="@+id/idBot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

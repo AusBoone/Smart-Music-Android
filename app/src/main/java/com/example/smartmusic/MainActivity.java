@@ -10,7 +10,7 @@ import android.view.View;
 //import android.widget.EditText;
 
 /** MainActivity.java
-* @author: Austin, Suleman, Patrick
+* @author Austin, Suleman, Patrick
 * This java class file contains a function for the begin button and a text view message for the user
 * date: 03-20-2022
 */

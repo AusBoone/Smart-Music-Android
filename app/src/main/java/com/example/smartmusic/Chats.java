@@ -38,7 +38,7 @@ public class Chats {
 
     /**
      * this is a setter method for the sender
-     * @param sender
+     * @param sender the sender is user or bot
      */
     public void setSender(String sender) {
         this.sender = sender;

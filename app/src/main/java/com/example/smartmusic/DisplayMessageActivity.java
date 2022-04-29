@@ -110,17 +110,17 @@ public class DisplayMessageActivity extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
 
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-        Call<MsgModal> call = retrofitAPI.getMessage(URL);
-        call.enqueue(new Callback<MsgModal>() {
+        Call<MessageModal> call = retrofitAPI.getMessage(URL);
+        call.enqueue(new Callback<MessageModal>() {
             @Override
             /**
              * this method will check for the successful response from the API and the response code "200"
              */
-            public void onResponse(Call<MsgModal> call, Response<MsgModal> response) {
+            public void onResponse(Call<MessageModal> call, Response<MessageModal> response) {
                 int statusCode = response.code();
                 if(response.isSuccessful() && response.code() == 200) {
                     System.out.println("[API response code = "+statusCode + ".]" );
-                    MsgModal modal = response.body();
+                    MessageModal modal = response.body();
                     System.out.println("Line 151 = " + modal.getCnt());
                     tempStr = modal.getCnt().toString();
                     System.out.println("Line 152 = " + response.body().toString());
@@ -136,7 +136,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
              * This method onFailure sends the response as "please revert your question" if there's
              * no response from the API
              */
-            public void onFailure(Call<MsgModal> call, Throwable t) {
+            public void onFailure(Call<MessageModal> call, Throwable t) {
                 chatsArrayList.add(new Chats("Please revert your question",BOT_KEY));
                 chatAdapter.notifyDataSetChanged();
             }

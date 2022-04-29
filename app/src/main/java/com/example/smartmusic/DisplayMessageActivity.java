@@ -65,8 +65,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
             @Override
             /**
-             * this method sends a Toast message that says
-             * "Please enter your message" to the user if the user sends an empty message,
+             * this method sends a Toast message to the user
+             * if it is empty, then it sends a Toast message that says "Please enter your message"
              * else if the user types a message it returns the response from the API for that
              * particular message
              */
@@ -89,7 +89,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     }
 
     /**
-     * @return the response from the Brainshop API for a particular user message input
+     * @return the response from the Brainshop API for a particular message
      * @param message
      * @throws IOException
      */
